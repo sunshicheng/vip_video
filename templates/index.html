@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}flask api{% endblock %}
+{% block page_content %}
+    <div class="page-header" p style="text-align: center;">
+        <h4>flask api 视频解析</h4>
+    </div>
+
+    <div class="col-md-14 column" p style="text-align: center;">
+        <div class="panel panel-default">
+            <div id="kj" class="panel-body">
+                <iframe width="60%" height="600px" id="player" allowTransparency="true" frameborder="0" scrolling="no"
+                        src="http://www.vipjiexi.com/yun.php?url={% if url %}{{ url }}{% else %}http://www.iqiyi.com/v_19rreigdnc.html?src=focustext_1_20130410_1#curid=841155700_962603068107d9c3eb684a5c979b1497{% endif %}">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    {{ wtf.quick_form(form) }}
+    <p>{{ moment(current_time).format('LLL') }}.</p>
+{% endblock %}
